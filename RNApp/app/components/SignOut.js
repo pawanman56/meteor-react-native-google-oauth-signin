@@ -49,8 +49,8 @@ class SignOut extends Component {
         <Text>Welcome {name}</Text>
         <Text>Email: {email}</Text>
 
-        <TouchableOpacity onPress={this.handleSignOut.bind(this)}>
-          <Text>Log Out</Text>
+        <TouchableOpacity style={styles.touchButton} onPress={this.handleSignOut.bind(this)}>
+          <Text style={styles.touchText}>Log Out</Text>
         </TouchableOpacity>
       </View>
     );
@@ -62,7 +62,23 @@ const styles = {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center'
-  }
+  },
+  touchButton: {
+    width: 320,
+    height: 54,
+    backgroundColor: "#fff",
+    padding: 10,
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderWidth: 1,
+    borderColor: '#a8a8a8',
+    marginBottom: 12,
+    elevation: 2
+  },
+  touchText:{
+    fontSize: 18,
+    fontWeight: '500'
+  },
 }
 
 export default SignOut;

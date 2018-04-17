@@ -30,7 +30,6 @@ class SignIn extends Component {
           this.setState({ error: err.reason })
         } else {
           this.props.changedSignedIn(true);
-          // this.setState({ signedIn: true })
         }
       })
     }
@@ -40,7 +39,6 @@ class SignIn extends Component {
     GoogleSignin.signIn()
     .then((user) => {
       console.log(user);
-      // this.setState({user: user});
       this.handleDPPSignIn(user);
     })
     .catch((err) => {
@@ -54,15 +52,8 @@ class SignIn extends Component {
   render() {
     return(
       <View style={styles.container}>
-        {/* <GoogleSigninButton 
-          style={{ width: 320, height:54 }}
-          size={GoogleSigninButton.Size.Wide}
-          color={GoogleSigninButton.Color.Light}
-          onPress={() => this.handleGoogleSignIn()}
-        /> */}
-        
-        <TouchableOpacity onPress={this.handleGoogleSignIn.bind(this)}>
-          <Text>SignIn with Google</Text>
+        <TouchableOpacity style={styles.touchButton} onPress={this.handleGoogleSignIn.bind(this)}>
+          <Text style={styles.touchText}>SignIn with Google</Text>
         </TouchableOpacity>
 
         <Text>{this.state.error}</Text>
@@ -76,7 +67,23 @@ const styles = {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center'
-  }
+  },
+  touchButton: {
+    width: 320,
+    height: 54,
+    backgroundColor: "#fff",
+    padding: 10,
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderWidth: 1,
+    borderColor: '#a8a8a8',
+    marginBottom: 12,
+    elevation: 2
+  },
+  touchText:{
+    fontSize: 18,
+    fontWeight: '500'
+  },
 }
 
 export default SignIn;
